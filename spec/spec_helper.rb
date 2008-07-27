@@ -1,0 +1,1 @@
+%w(rubygems spec).each { |lib| require lib }
