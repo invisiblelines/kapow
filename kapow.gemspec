@@ -1,10 +1,11 @@
 Gem::Specification.new do |s|
   s.name     = "kapow"
-  s.version  = "0.1.0"
+  s.version  = "0.1.1"
   s.date     = "2008-07-27"
   s.summary  = "Ruby library for Kapow SMS gateway service"
   s.email    = "kieran[AT]invisiblelines.com"
   s.homepage = "http://github.com/kieranj/kapow"
+  s.rubyforge_project = "kapow"
   s.description = "Ruby library for sending SMS messages using the Kapow SMS gateway service."
   s.has_rdoc = true
   s.authors  = ["Kieran Johnson"]
