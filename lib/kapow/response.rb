@@ -4,9 +4,11 @@ module Kapow
   class AuthenticationError < StandardError; end
   class Error < StandardError; end
   
+  # A small class for parsing the response from the sms gateway.
   class Response
     
-    # Raise the appropriate error or return true
+    # Parses the response body. Raises the appropriate error or returns true.
+    # Also updates the amount of available credit.
     def self.parse(response)
       case response
       when Net::HTTPSuccess, Net::HTTPRedirection

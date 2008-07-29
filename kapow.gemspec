@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name     = "kapow"
-  s.version  = "0.1.1"
+  s.version  = "0.1.2"
   s.date     = "2008-07-29"
   s.summary  = "Ruby library for Kapow SMS gateway service"
   s.email    = "kieran[AT]invisiblelines.com"
@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.has_rdoc = true
   s.authors  = ["Kieran Johnson"]
   s.files    = ["History.txt", 
-		"Readme.txt", 
+		"Readme.rdoc", 
 		"Rakefile", 
 		"kapow.gemspec", 
 		"lib/kapow.rb",
@@ -19,6 +19,6 @@ Gem::Specification.new do |s|
 		"lib/kapow/credit.rb",
 		"lib/kapow/version.rb"]
 	s.test_files = ["spec/message_spec.rb", "spec/response_spec.rb"]
-  s.rdoc_options = ["--main", "Readme.txt"]
-  s.extra_rdoc_files = ["Readme.txt"]
+  s.rdoc_options = ["--main", "Readme.rdoc"]
+  s.extra_rdoc_files = ["Readme.rdoc"]
 end

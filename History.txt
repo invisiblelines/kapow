@@ -1,3 +1,11 @@
 == 0.1.0 2008-07-27
  
 * Initial release.
+
+== 0.1.1 2008-07-28
+
+* Updated gemspec as gem was not building on Github
+
+== 0.1.2 2008-07-29
+
+* Improved rdoc
