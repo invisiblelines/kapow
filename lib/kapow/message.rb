@@ -6,7 +6,7 @@ module Kapow
     
     MESSAGE_URL = "http://www.kapow.co.uk/scripts/sendsms.php"
     
-    VALID_OPTIONS = [:from_id, :lomg_sms]
+    VALID_OPTIONS = [:flash, :from_id, :long_sms]
     
     # Required values are: username, password
     # <tt>:username</tt>:: Your account username.
@@ -21,11 +21,15 @@ module Kapow
     # <tt>:sms</tt>:: Text for the message itself, truncated by gateway at 160 characters
     #
     # Optional parameters passed in as a hash
+    # <tt>:flash</tt>:: Boolean - Send SMS as a flash
     # <tt>:from_id</tt>:: The message originator (if enabled for your account)
     # <tt>:long_sms</tt>:: Boolean (if enabled in your account)
     
     def deliver(mobile, sms, options={})
       options = options.reject { |k,v| !VALID_OPTIONS.include?(k) }
+      if options.include?(:flash) && options[:flash] == true
+        sms = "FLASH#{sms}"
+      end
       sms_parameters = {
         :username => @username,
         :password => @password,

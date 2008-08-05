@@ -23,7 +23,7 @@ module Kapow
           return true
         end
       else
-        response.error!
+        raise Error, response.error!
       end
     end
     

@@ -1,11 +1,17 @@
-== 0.1.0 2008-07-27
- 
-* Initial release.
+== 0.2.0 2008-08-05
+
+* Fixed typo in :long_sms option
+* Added ability to send sms as flash message
+* Added a few more specs
+
+== 0.1.2 2008-07-29
+
+* Improved rdoc
 
 == 0.1.1 2008-07-28
 
 * Updated gemspec as gem was not building on Github
 
-== 0.1.2 2008-07-29
-
-* Improved rdoc
+== 0.1.0 2008-07-27
+ 
+* Initial release.
