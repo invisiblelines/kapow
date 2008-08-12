@@ -21,7 +21,7 @@ speed and an immediate response message.
   require 'kieranj-kapow'
 
   # Create a new sms
-  msg = Kapow::Message.new('username', 'password')
+  msg = Kapow::SMS.new('username', 'password')
   msg.deliver('mobile_no', 'sms')
   
 All options supported by Kapow can be passed into the deliver method as a hash
