@@ -2,7 +2,7 @@
 
 module Kapow
   # A class for creating and sending an sms message using the Kapow sms gateway.
-  class Message
+  class SMS
     
     MESSAGE_URL = "http://www.kapow.co.uk/scripts/sendsms.php"
     

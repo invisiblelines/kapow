@@ -15,7 +15,7 @@ Gem::Specification.new do |s|
 		"init.rb", 
 		"kapow.gemspec", 
 		"lib/kapow.rb",
-		"lib/kapow/message.rb",
+		"lib/kapow/sms.rb",
 		"lib/kapow/response.rb",
 		"lib/kapow/credit.rb",
 		"lib/kapow/version.rb"]

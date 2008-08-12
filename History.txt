@@ -1,3 +1,7 @@
+== 0.3.0 2008-08-12
+
+* Renamed Message class to SMS, as this identifies the class better
+
 == 0.2.0 2008-08-05
 
 * Fixed typo in :long_sms option
