@@ -19,7 +19,7 @@ Gem::Specification.new do |s|
 		"lib/kapow/response.rb",
 		"lib/kapow/credit.rb",
 		"lib/kapow/version.rb"]
-	s.test_files = ["spec/message_spec.rb", "spec/response_spec.rb"]
+	s.test_files = ["spec/sms_spec.rb", "spec/response_spec.rb"]
   s.rdoc_options = ["--main", "Readme.rdoc"]
   s.extra_rdoc_files = ["Readme.rdoc"]
 end
