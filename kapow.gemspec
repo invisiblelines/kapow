@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   s.files    = ["History.txt", 
 		"Readme.rdoc", 
 		"Rakefile",
-		"init.rb", 
+		"rails/init.rb", 
 		"kapow.gemspec", 
 		"lib/kapow.rb",
 		"lib/kapow/sms.rb",
