@@ -10,20 +10,20 @@ module Kapow
     # Parses the response body. Raises the appropriate error or returns true.
     # Also updates the amount of available credit.
     def self.parse(response)
-      case response
-      when Net::HTTPSuccess, Net::HTTPRedirection
+      if response.is_a?(Net::HTTPSuccess || Net::HTTPRedirection)
         case response.body
-        when "USERPASS" : raise AuthenticationError
-        when "NOCREDIT" : raise NoCreditError
-        when "ERROR" : raise Error
-        when /OK/
-          if response.body.match(/OK (.*)/)
-            Kapow::Credit.available = $1.to_i
-          end
-          return true
+        when "USERPASS"
+          raise AuthenticationError
+        when "NOCREDIT"
+          raise NoCreditError
+        when "ERROR"
+          raise Error
+        when /^OK (.*)/
+          Kapow::Credit.available = $1.to_i
         end
       else
-        raise Error, response.error!
+        # raise Error, response
+        raise response.error!
       end
     end
     
