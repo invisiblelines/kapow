@@ -20,7 +20,6 @@ Rake::RDocTask.new('docs') do |rd|
   rd.main = 'README.txt'
   rd.rdoc_files.include('README', 'History.txt', 'License.txt', 'lib/**/*.rb')
   rd.rdoc_dir = 'doc'
-  rd.options << '--style=http://clickatell.rubyforge.org/stylesheets/rdoc.css'
   rd.options << '--tab-width=2'
   rd.options << '--inline-source'
   rd.options << '--line-numbers'
@@ -48,4 +47,3 @@ end
  
 desc "Default task is to run specs"
 task :default => 'spec:all'
-  
