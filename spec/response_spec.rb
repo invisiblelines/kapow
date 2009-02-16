@@ -7,27 +7,27 @@ describe Kapow::Response do
   end
   
   it "should raise Kapow::Authentication error if response is USERPASS" do
-    @response.stub!(:body).and_return("USERPASS")
+    @response.stubs(:body).returns("USERPASS")
     lambda { Kapow::Response.parse(@response) }.should raise_error(Kapow::AuthenticationError)
   end
   
   it "should raise Kapow::NoCreditError error if response is NOCREDIT" do
-    @response.stub!(:body).and_return("NOCREDIT")
+    @response.stubs(:body).returns("NOCREDIT")
     lambda { Kapow::Response.parse(@response) }.should raise_error(Kapow::NoCreditError)
   end
   
   it "should raise Kapow::Error error if response is ERROR" do
-    @response.stub!(:body).and_return("ERROR")
+    @response.stubs(:body).returns("ERROR")
     lambda { Kapow::Response.parse(@response) }.should raise_error(Kapow::Error)
   end
   
   it "should return true if response is OK" do
-    @response.stub!(:body).and_return("OK CREDITS")
+    @response.stubs(:body).returns("OK CREDITS")
     lambda { Kapow::Response.parse(@response) }.should_not raise_error
   end
   
   it "should return the amount of credit available if response is OK" do
-    @response.stub!(:body).and_return("OK 111")
+    @response.stubs(:body).returns("OK 111")
     Kapow::Response.parse(@response)
     Kapow::Credit.to_s.should == "111"
   end
