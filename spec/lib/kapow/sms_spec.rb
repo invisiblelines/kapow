@@ -1,4 +1,4 @@
-require File.dirname(__FILE__) + '/spec_helper'
+require 'spec_helper'
 
 describe Kapow::SMS do
   let(:sms) { Kapow::SMS.new("kieran", "secret") }

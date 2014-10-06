@@ -1,12 +1,12 @@
 module Kapow
-  
+
   class NoCreditError < StandardError; end
   class AuthenticationError < StandardError; end
   class Error < StandardError; end
-  
+
   # A small class for parsing the response from the sms gateway.
   class Response
-    
+
     # Parses the response body. Raises the appropriate error or returns true.
     # Also updates the amount of available credit.
     def self.parse(response)
@@ -26,7 +26,7 @@ module Kapow
         raise response.error!
       end
     end
-    
+
   end
-  
+
 end
