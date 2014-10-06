@@ -1,5 +1,8 @@
 # Kapow
 
+[![Build Status](https://travis-ci.org/invisiblelines/kapow.svg?branch=master)](https://travis-ci.org/invisiblelines/kapow)
+[![Code Climate](https://codeclimate.com/github/invisiblelines/kapow/badges/gpa.svg)](https://codeclimate.com/github/invisiblelines/kapow)
+
 Ruby library for Kapow SMS gateway service
 
 ## Installation:
