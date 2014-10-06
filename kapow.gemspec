@@ -25,4 +25,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'rb-inotify', '~> 0.9'
   s.add_development_dependency 'rb-fsevent', '~> 0.9'
   s.add_development_dependency 'simplecov'
+  s.add_development_dependency "codeclimate-test-reporter"
 end
