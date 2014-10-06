@@ -24,4 +24,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'guard-rspec', '~> 4.3'
   s.add_development_dependency 'rb-inotify', '~> 0.9'
   s.add_development_dependency 'rb-fsevent', '~> 0.9'
+  s.add_development_dependency 'simplecov'
 end
