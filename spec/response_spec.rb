@@ -1,40 +1,54 @@
 require File.dirname(__FILE__) + '/spec_helper'
-  
+
 describe Kapow::Response do
-  
-  before do
-    @response = Net::HTTPSuccess.new('1.1', '200', 'OK')
-  end
-  
+
+  let(:response) { Net::HTTPSuccess.new('1.1', '200', 'OK') }
+
   it "should raise Kapow::Authentication error if response is USERPASS" do
-    @response.stubs(:body).returns("USERPASS")
-    lambda { Kapow::Response.parse(@response) }.should raise_error(Kapow::AuthenticationError)
+    allow(response).to receive(:body).and_return("USERPASS")
+
+    expect {
+      Kapow::Response.parse(response)
+    }.to raise_error(Kapow::AuthenticationError)
   end
-  
+
   it "should raise Kapow::NoCreditError error if response is NOCREDIT" do
-    @response.stubs(:body).returns("NOCREDIT")
-    lambda { Kapow::Response.parse(@response) }.should raise_error(Kapow::NoCreditError)
+    allow(response).to receive(:body).and_return("NOCREDIT")
+
+    expect {
+      Kapow::Response.parse(response)
+    }.to raise_error(Kapow::NoCreditError)
   end
-  
+
   it "should raise Kapow::Error error if response is ERROR" do
-    @response.stubs(:body).returns("ERROR")
-    lambda { Kapow::Response.parse(@response) }.should raise_error(Kapow::Error)
+    allow(response).to receive(:body).and_return("ERROR")
+
+    expect {
+      Kapow::Response.parse(response)
+    }.to raise_error(Kapow::Error)
   end
-  
+
   it "should return true if response is OK" do
-    @response.stubs(:body).returns("OK CREDITS")
-    lambda { Kapow::Response.parse(@response) }.should_not raise_error
+    allow(response).to receive(:body).and_return("OK CREDITS")
+
+    expect {
+      Kapow::Response.parse(response)
+    }.not_to raise_error
   end
-  
+
   it "should return the amount of credit available if response is OK" do
-    @response.stubs(:body).returns("OK 111")
-    Kapow::Response.parse(@response)
-    Kapow::Credit.to_s.should == "111"
+    allow(response).to receive(:body).and_return("OK 111")
+
+    Kapow::Response.parse(response)
+    expect(Kapow::Credit.to_s).to eq("111")
   end
-  
+
   it "should raise Kapow::Error if response is not success or redirection" do
     error = Net::HTTPServerError.new("1.1", "500", "Error")
-    lambda { Kapow::Response.parse(error) }.should raise_error
+
+    expect {
+      Kapow::Response.parse(error)
+    }.to raise_error
   end
-  
+
 end

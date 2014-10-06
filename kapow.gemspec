@@ -1,25 +1,22 @@
+$:.push File.expand_path("../lib", __FILE__)
+
+# Maintain your gem's version:
+require "kapow/version"
+
+# Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
-  s.name     = "kapow"
-  s.version  = "0.3.0"
-  s.date     = "2008-08-13"
-  s.summary  = "Ruby library for Kapow SMS gateway service"
-  s.email    = "kieran[AT]invisiblelines.com"
-  s.homepage = "http://github.com/kieranj/kapow"
-  s.rubyforge_project = "kapow"
-  s.description = "Ruby library for sending SMS messages using the Kapow SMS gateway service."
-  s.has_rdoc = true
-  s.authors  = ["Kieran Johnson"]
-  s.files    = ["History.txt", 
-		"Readme.rdoc", 
-		"Rakefile",
-		"rails/init.rb", 
-		"kapow.gemspec", 
-		"lib/kapow.rb",
-		"lib/kapow/sms.rb",
-		"lib/kapow/response.rb",
-		"lib/kapow/credit.rb",
-		"lib/kapow/version.rb"]
-	s.test_files = ["spec/sms_spec.rb", "spec/response_spec.rb"]
-  s.rdoc_options = ["--main", "Readme.rdoc"]
-  s.extra_rdoc_files = ["Readme.rdoc"]
+  s.name          = "kapow"
+  s.version       = Kapow::VERSION
+  s.authors       = ["Kieran Johnson"]
+  s.email         = ["hello@invisiblelines.com"]
+  s.homepage      = "http://github.com/invisiblelines/kapow"
+  s.summary       = "Ruby library for sending SMS messages using the Kapow SMS gateway service."
+  s.description   = s.summary
+
+  s.files         = Dir['Gemfile', 'README.rdoc', 'Rakefile', 'History.txt', 'License.txt', 'lib/**/*']
+  s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
+  s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
+  s.require_paths = ['lib']
+
+  s.add_development_dependency 'rspec', '3.1.0'
 end

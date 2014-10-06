@@ -1,7 +1,8 @@
-%w(rubygems spec).each { |lib| require lib }
+require 'rspec'
+require 'kapow'
 
-require File.dirname(__FILE__) + '/../lib/kapow'
-
-Spec::Runner.configure do |config|
-  config.mock_with :mocha
+RSpec.configure do |config|
+  config.expect_with :rspec do |c|
+    c.syntax = :expect
+  end
 end
