@@ -9,7 +9,7 @@ module Kapow
 
     # Parses the response body. Raises the appropriate error or returns true.
     # Also updates the amount of available credit.
-    def self.parse(response)
+    def initialize(response)
       if response.is_a?(Net::HTTPSuccess || Net::HTTPRedirection)
         case response.body
         when "USERPASS"
@@ -22,7 +22,6 @@ module Kapow
           Kapow::Credit.available = $1.to_i
         end
       else
-        # raise Error, response
         raise response.error!
       end
     end

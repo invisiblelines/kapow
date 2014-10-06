@@ -8,15 +8,18 @@
 # ---
 # = Usage:
 #   require 'rubygems'
-#   require 'kieranj-kapow'
-# 
+#   require 'kapow'
+#
 #   msg = Kapow::Message.new('username', 'password')
 #   msg.deliver('mobile_no', 'sms')
 
-module Kapow
+require 'uri'
+require 'net/http'
+require 'kapow/version'
+require 'kapow/response'
+require 'kapow/sms'
+require 'kapow/credit'
 
-  %w(version response sms credit).each do |lib|
-    require File.join(File.dirname(__FILE__), 'kapow', lib)
-  end
+module Kapow
 
 end

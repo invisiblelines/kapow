@@ -8,7 +8,7 @@ describe Kapow::Response do
     allow(response).to receive(:body).and_return("USERPASS")
 
     expect {
-      Kapow::Response.parse(response)
+      Kapow::Response.new(response)
     }.to raise_error(Kapow::AuthenticationError)
   end
 
@@ -16,7 +16,7 @@ describe Kapow::Response do
     allow(response).to receive(:body).and_return("NOCREDIT")
 
     expect {
-      Kapow::Response.parse(response)
+      Kapow::Response.new(response)
     }.to raise_error(Kapow::NoCreditError)
   end
 
@@ -24,7 +24,7 @@ describe Kapow::Response do
     allow(response).to receive(:body).and_return("ERROR")
 
     expect {
-      Kapow::Response.parse(response)
+      Kapow::Response.new(response)
     }.to raise_error(Kapow::Error)
   end
 
@@ -32,14 +32,14 @@ describe Kapow::Response do
     allow(response).to receive(:body).and_return("OK CREDITS")
 
     expect {
-      Kapow::Response.parse(response)
+      Kapow::Response.new(response)
     }.not_to raise_error
   end
 
   it "should return the amount of credit available if response is OK" do
     allow(response).to receive(:body).and_return("OK 111")
 
-    Kapow::Response.parse(response)
+    Kapow::Response.new(response)
     expect(Kapow::Credit.to_s).to eq("111")
   end
 
@@ -47,7 +47,7 @@ describe Kapow::Response do
     error = Net::HTTPServerError.new("1.1", "500", "Error")
 
     expect {
-      Kapow::Response.parse(error)
+      Kapow::Response.new(error)
     }.to raise_error
   end
 
