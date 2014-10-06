@@ -41,10 +41,12 @@ msg.deliver('mobile_no', 'sms', :long_sms => true)
 
 Responses provided by the Kapow SMS Gateway are:
 
-|OK|Message has been accepted for delivery.|
-|USERPASS|Invalid username or password.|
-|NOCREDIT|Account has no credits or credit limit has been reached.|
-|ERROR|Any other error has occurred.|
+| Name     | Description
+---------- | -----------
+| OK       | Message has been accepted for delivery.
+| USERPASS | Invalid username or password. 
+| NOCREDIT | Account has no credits or credit limit has been reached.
+| ERROR    | Any other error has occurred.
 
 The amount of remaining credit is included with the 'OK' response from the gateway. This is available as:
 
